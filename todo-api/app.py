@@ -1,6 +1,10 @@
 from flask import Flask, jsonify, request, abort
 from models import db, Task
 from config import Config
+import logging
+
+# set up logging
+logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -77,4 +81,4 @@ def bad_request(error):
 
 if __name__ == '_main_':
     create_tables()
-    app.run(debug=True)
+    app.run(debug=True, port=5001)
