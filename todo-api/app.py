@@ -79,6 +79,6 @@ def not_found(error):
 def bad_request(error):
     return jsonify({"error": error.description}), 400
 
-if __name__ == '_main_':
+if __name__ == '__main__':
     create_tables()
     app.run(debug=True)
