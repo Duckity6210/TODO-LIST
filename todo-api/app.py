@@ -2,13 +2,14 @@ from flask import Flask, jsonify, request, abort
 from models import db, Task
 from config import Config
 import logging
+from flask_sqlalchemy import SQLAlchemy
 
 # set up logging
 logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 app.config.from_object(Config)
-db.init_app(app)
+db = SQLAlchemy(app)
 
 # Create database
 def create_tables():
