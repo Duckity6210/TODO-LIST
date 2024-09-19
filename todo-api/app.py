@@ -2,18 +2,19 @@ from flask import Flask, jsonify, request, abort
 from models import db, Task
 from config import Config
 import logging
+from flask_sqlalchemy import SQLAlchemy
 
 # set up logging
 logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 app.config.from_object(Config)
-db.init_app(app)
+db = SQLAlchemy(app)
 
 # Create database
 def create_tables():
     with app.app_context():
-        db.create_all()
+        db.create_all()     # This will create all tables
 
 # Route: Get all tasks
 @app.route('/tasks', methods=['GET'])
@@ -79,6 +80,6 @@ def not_found(error):
 def bad_request(error):
     return jsonify({"error": error.description}), 400
 
-if __name__ == '_main_':
-    create_tables()
-    app.run(debug=True, port=5001)
+if __name__ == '__main__':
+    create_tables()      # create tables if they don't exist
+    app.run(debug=True)
