@@ -14,7 +14,7 @@ db = SQLAlchemy(app)
 # Create database
 def create_tables():
     with app.app_context():
-        db.create_all()
+        db.create_all()     # This will create all tables
 
 # Route: Get all tasks
 @app.route('/tasks', methods=['GET'])
@@ -81,5 +81,5 @@ def bad_request(error):
     return jsonify({"error": error.description}), 400
 
 if __name__ == '__main__':
-    create_tables()
+    create_tables()      # create tables if they don't exist
     app.run(debug=True)
