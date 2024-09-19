@@ -81,4 +81,4 @@ def bad_request(error):
 
 if __name__ == '_main_':
     create_tables()
-    app.run(debug=True, port=8080)
+    app.run(debug=True)
