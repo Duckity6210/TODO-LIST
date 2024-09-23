@@ -30,7 +30,9 @@ A simple Todo List API built using Python and a backend framework (e.g., Flask).
    cd todo-api
 
  I.P Adress where API is running
+  
   http://127.0.0.1:5000
+
 GET ALL TASKS
 
 curl -X GET http://127.0.0.1:5000/tasks
