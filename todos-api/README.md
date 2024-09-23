@@ -49,4 +49,4 @@ curl -X DELETE http://127.0.0.1:5000/tasks/{task_id}
 
 PUT TASK
 
-curl -X PUT http://127.0.0.1:5000/tasks/{1} -H "Content-Type: application/json" -d '{"title": "Go To Gym", "done": true}' 
+curl -X PUT http://127.0.0.1:5000/tasks/{1} -H "Content-Type: application/json" -d '{"title": "title", "done": true}' 
