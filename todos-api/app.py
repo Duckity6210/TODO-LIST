@@ -4,8 +4,8 @@ app = Flask(__name__)
 
 # In-memory database for demonstration purposes
 tasks = [
-    {'id': 1, 'title': 'Learn Flask', 'done': False},
-    {'id': 2, 'title': 'Build a REST API', 'done': False}
+    {'id': 1, 'title': 'Do Laundry', 'done': False},
+    {'id': 2, 'title': 'Soccer Practice', 'done': False}
 ]
 
 @app.route('/tasks', methods=['GET'])
