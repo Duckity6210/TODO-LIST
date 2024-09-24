@@ -2,6 +2,9 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
+# Your API key
+API_KEY = 'your-secret-api-key'
+
 # In-memory database for demonstration purposes
 tasks = [
     {'id': 1, 'title': 'Do Laundry', 'done': False},
