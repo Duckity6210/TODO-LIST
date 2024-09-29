@@ -52,3 +52,25 @@ curl -X DELETE http://127.0.0.1:5000/tasks/{task_id}
 PUT TASK
 
 curl -X PUT http://127.0.0.1:5000/tasks/{1} -H "Content-Type: application/json" -d '{"title": "title", "done": true}' 
+
+
+implement filtering and sorting
+
+Get All Tasks (No Filters or Sorting):
+curl -X GET "http://127.0.0.1:5000/tasks"
+
+
+Filter by Completion Status (done=true):
+curl -X GET "http://127.0.0.1:5000/tasks?done=true"
+
+
+Sort by Task Title in Ascending Order:
+curl -X GET "http://127.0.0.1:5000/tasks?sort_by=title&sort_order=asc"
+
+
+Sort by Task ID in Descending Order
+curl -X GET "http://127.0.0.1:5000/tasks?sort_by=id&sort_order=desc"
+
+
+Combine Filtering and Sorting: To filter for completed tasks and sort by title in ascending order:
+curl -X GET "http://127.0.0.1:5000/tasks?done=true&sort_by=title&sort_order=asc"
