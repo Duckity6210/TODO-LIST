@@ -2,6 +2,12 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
+#welcome.route
+
+@app.route('/')
+def welcome():
+    return jsonify({"message": "Todo API - Your Task List Manager")}
+
 # In-memory database for demonstration purposes
 tasks = [
     {'id': 1, 'title': 'Do Laundry', 'done': False},
