@@ -11,8 +11,8 @@ def welcome():
 # In-memory database for demonstration purposes
 tasks = [
     {'id': 1, 'title': 'Submit Assignment', 'done': False},
-    {'id': 2, 'title': 'Pay Electricity Bill', 'done': False}
-    {'id': 3, 'title': 'Deposi Money', 'done': False}
+    {'id': 2, 'title': 'Pay Electricity Bill', 'done': False},
+    {'id': 3, 'title': 'Deposit Money', 'done': False},
     {'id': 4, 'title': 'Do Laundry', 'done': False}
 ]
 
