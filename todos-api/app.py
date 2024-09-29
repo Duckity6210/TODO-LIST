@@ -1,12 +1,57 @@
 from flask import Flask, jsonify, request
+from flask_sqlalchemy import SQLAlchemy
+from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
+
+# Configure the SQLite database
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# Initialize database and password hashing
+db = SQLAlchemy(app)
+bcrypt = Bcrypt(app)
+
+# User model to store user credentials
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    password = db.Column(db.String(200), nullable=False)
+
+    def __repr__(self):
+        return f"<User {self.username}>"
+
+# Initialize the database
+with app.app_context():
+    db.create_all()
 
 #welcome.route
 
 @app.route('/')
 def welcome():
     return jsonify({"message": "Todo API - Your Task List Manager"})
+
+# User registration route
+@app.route('/register', methods=['POST'])
+def register_user():
+    data = request.json
+    if not data or not 'username' in data or not 'password' in data:
+        return jsonify({'error': 'Username and password are required'}), 400
+
+    # Check if username already exists
+    if User.query.filter_by(username=data['username']).first():
+        return jsonify({'error': 'Username already exists'}), 409
+
+    # Hash the password before storing
+    hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
+
+    # Create a new user and save to the database
+    new_user = User(username=data['username'], password=hashed_password)
+    db.session.add(new_user)
+    db.session.commit()
+
+    return jsonify({'message': 'User registered successfully'}), 201
+
 
 # In-memory database for demonstration purposes
 tasks = [
