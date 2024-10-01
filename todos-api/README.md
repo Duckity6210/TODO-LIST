@@ -89,3 +89,5 @@ curl -X GET "http://127.0.0.1:5000/tasks?done=true&sort_by=title&sort_order=asc"
 USER REGISTRATION
 
 curl -X POST http://127.0.0.1:5000/register -H "Content-Type: application/json" -d '{"username": "PRISCA", "password": "37890524"}'
+
+DEPLOYED PAGE UNDERWAY
