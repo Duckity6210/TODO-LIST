@@ -27,6 +27,7 @@ A simple Todo List API built using Python and a backend framework (e.g., Flask).
 
 
    git clone https://github.com/Duckity6210/TODO-LIST.git
+   
    cd todos-api
 
  I.P Adress where API is running
