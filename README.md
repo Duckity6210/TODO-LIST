@@ -1,38 +1,4 @@
 
-Navigation Menu
-
-Code
-Issues
-Pull requests
-BreadcrumbsTODO-LIST
-/todos-api/
-Directory actionsMore options
-Latest commit
-Duckity6210
-Duckity6210
-last week
-History
-BreadcrumbsTODO-LIST
-/todos-api/
-Folders and files
-Name	Last commit date
-parent directory
-..
-__pycache__
-last week
-instance
-last week
-venv
-last week
-Procfile
-last week
-README.md
-last week
-app.py
-last week
-requirements.txt
-last week
-README.md
 todos-api
 
 Todo List API
